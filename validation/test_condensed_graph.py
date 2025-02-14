@@ -36,41 +36,6 @@ def train_and_evaluate(model, data, train_mask, test_mask, epochs=100, lr=0.01):
 
 
 def main():
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    params = {
-        'condensed': {
-            'model_params': {
-                'in_channels': None,  
-                'out_channels': None, 
-                'improved': False,
-                'cached': False,
-                'add_self_loops': True,
-                'normalize': True,
-                'bias': True
-            },
-            'train_params': {
-                'epochs': 300,
-                'lr': 0.001
-            }
-        },
-        'cora': {
-            'model_params': {
-                'in_channels': None,  
-                'out_channels': None, 
-                'improved': False,
-                'cached': False,
-                'add_self_loops': True,
-                'normalize': True,
-                'bias': True
-            },
-            'train_params': {
-                'epochs': 500,
-                'lr': 0.001
-            }
-        }
-    }
-
     condensed_data = load_condensed_graph().to(device)
     params['condensed']['model_params']['in_channels'] = condensed_data.x.size(1)
     params['condensed']['model_params']['out_channels'] = len(torch.unique(condensed_data.y))

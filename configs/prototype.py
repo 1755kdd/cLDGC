@@ -30,7 +30,7 @@ dataset_configs = {
         "batch_size": 2048,
         "clustering": {
             **base_config["clustering"],
-            "tolerance": 1e-3  # 适当放宽收敛阈值
+            "tolerance": 1e-3
         }
     },
     
@@ -41,7 +41,7 @@ dataset_configs = {
         "batch_size": 4096,
         "clustering": {
             **base_config["clustering"],
-            "max_iter": 400  # 中等规模数据集增加迭代
+            "max_iter": 400 
         }
     },
     
@@ -52,7 +52,7 @@ dataset_configs = {
         "batch_size": 8192,
         "clustering": {
             **base_config["clustering"],
-            "init": "random",  # 大数据集使用随机初始化更快
+            "init": "random", 
             "max_iter": 150
         }
     },

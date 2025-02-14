@@ -17,14 +17,21 @@ cLDGC presents an architecture-agnostic generative framework for synthesizing co
 
 ## Running cLDGC
 ### Pretrain graph encoder
+```bash
 python train_encoder.py
+```
 
 ### Protorype extraction
+```bash
 python extract_prototype.py
+```
 
 ### Diffusion Process
+```bash
 python train_diffusion.py
+```
 
 ### Condensed graph generation
+```bash
 python generate_graph.py
-
+```

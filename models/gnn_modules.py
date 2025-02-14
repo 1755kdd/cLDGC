@@ -132,7 +132,7 @@ class SAGE(nn.Module):
             out = torch_scatter.scatter_max(x_j, col, dim=0, out=x.new_zeros(x.size()))[0]
             
         elif self.aggr == 'lstm':
-            pass  # 需要实现LSTM聚合
+            pass  
         
         if self.project:
             out = self.lin(out)

@@ -1,14 +1,30 @@
-# cLDGC
+# cLDGC: Conditional Latent Diffusion-based Graph Condensation
 
-## Data
-For cora and citeseer, the code will directly download them using PyG (PyTorch Geometric). For reddit, flickr and ogbn-arxiv, we use the datasets provided by GraphSAINT. They are available on Google Drive link (reddit, flickr and ogbn-arxiv). Download and move them to ./data at your root directory.
+## Overview
+cLDGC presents an architecture-agnostic generative framework for synthesizing condensed graph representations through synergistic optimization of feature-structure interdependencies. Our novel approach employs a four-stage process to eliminate architectural biases while preserving task-critical graph semantics:
 
+1. **Latent Space Encoding**: Pre-train a graph encoder to project node attributes and topological relationships into a shared latent representation
+2. **Prototype Extraction**: Extract graph prototypes via clustering on learned representations, disentangling essential topological patterns
+3. **Conditional Diffusion Process**: Incorporate task-specific semantics through label-conditioned diffusion processes with adaptive noise scheduling
+4. **Condensed Graph Generation**: Reconstruct condensed feature matrices and adjacency structures from refined latent embeddings in unified generation step
 
-## Reproducibility
-our codes are implemented step by step:
-- run graph_encoder.py for graph encoding pretraining
-- run prototype_analysis.py for class-aware prototype extraction
-- run diffusion_module.py for conditional diffusion process
-- run graph_generation.py for condensed graph generation
+# Quick Start
+## Create environment
+```bash
+- Python >=3.9
+- Pytorch >= 1.12.1
+```
 
-- test_condensed_graph.py is the codes for testing
+## Running cLDGC
+### Pretrain graph encoder
+python train_encoder.py
+
+### Protorype extraction
+python extract_prototype.py
+
+### Diffusion Process
+python train_diffusion.py
+
+### Condensed graph generation
+python generate_graph.py
+
